@@ -1,12 +1,10 @@
 function containsDuplicate(nums: number[]): boolean {
-    let map:Record<number,number>={}
+    let map=new Map<number,boolean>()
     for (let num of nums){
-        if(num in map){
+        if(map.has(num)){
             return true
         }
-        map[num]=num
-
-
+        map.set(num,true)
     }
     return false
 };
