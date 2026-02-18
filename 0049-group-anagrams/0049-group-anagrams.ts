@@ -1,16 +1,16 @@
 function groupAnagrams(strs: string[]): string[][] {
-    const map:Record<string,string[]>={}
-    for (const word of strs){
-        const count:number[]=new Array(26).fill(0)
-        for (const char of word){
-            const index=char.charCodeAt(0)-"a".charCodeAt(0)
-            count[index]++
+    let map:Record<number,string[]>={}
+    for (let word of strs){
+        let result:number[]=Array(26).fill(0)
+        for (let char of word){
+            let index=char.charCodeAt(0)-"a".charCodeAt(0)
+            result[index]+=1
         }
-        const key:string=count.join("#")
-        if(!(key in map)) {
-            map[key]=[]
-            }
-        map[key].push(word)
+        let anagram:string=result.join("#")
+        if(!(anagram in map)){
+            map[anagram]=[]
+        }
+        map[anagram].push(word)
     }
     return Object.values(map)
 };
