@@ -11,8 +11,8 @@
  */
 
 function middleNode(head: ListNode | null): ListNode | null {
-    let fast:ListNode=head
-    let slow:ListNode=head
+    let slow=head
+    let fast=head
     while(fast && fast.next){
         slow=slow.next
         fast=fast.next.next
